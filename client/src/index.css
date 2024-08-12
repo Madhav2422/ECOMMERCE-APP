@@ -9,29 +9,56 @@
 /* font-family: "Poppins", sans-serif; */
 /* font-family: "Playfair Display", serif; */
 
-/* // Navbar CSS // */
+/* Navbar Container */
 .navbar {
-  font-family: "Poppins", sans-serif;
-  font-size: 17px;
-  line-height: 26px;
-  text-transform: uppercase;
-  box-shadow: 0 8px 6px -6px gray;
-  --webkit-box-shadow: 0 8px 6px -6px;
-  border-bottom: solid gray !important
+  display: flex;
+  align-items: center;
+  /* Vertically center items */
+  justify-content: space-between;
+  /* Space between elements */
+  padding: 0 20px;
+  /* Horizontal padding */
+  background-color: #333;
+  /* Background color */
+  color: #fff;
+  /* Text color */
 }
 
-.nav-link {
-  font-weight: 300 !important;
+/* Navbar Links */
+.navbar .nav-links {
+  display: flex;
+  align-items: center;
 }
 
-.active {
-  border-bottom: 2px solid black;
+/* Navbar Search */
+.navbar .search-container {
+  display: flex;
+  align-items: center;
 }
 
-.navbar-brand {
-  font-weight: 700;
-  font-family: 'roboto', sans-serif;
-  letter-spacing: 2px;
+/* Search Input */
+.navbar .search-container input[type="text"] {
+  padding: 5px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+
+/* Search Button */
+.navbar .search-container button {
+  padding: 5px 10px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  background-color: #555;
+  /* Button background color */
+  color: #fff;
+  /* Button text color */
+  cursor: pointer;
+}
+
+.navbar .search-container button:hover {
+  background-color: #777;
+  /* Button hover color */
 }
 
 
@@ -141,7 +168,7 @@
 body {
   background-color: #f5f5f5;
   /* Light gray background */
- 
+
 }
 
 /* Layout container */
