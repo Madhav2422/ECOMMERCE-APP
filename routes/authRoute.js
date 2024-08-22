@@ -33,7 +33,7 @@ router.post("/forgotpassword",forgotpasswordController)
 
 
 // orders
-router.get("/orders",requireSignIn,getOrdersController)
+router.get("/orders", requireSignIn, getOrdersController);
 
 
 export default router;

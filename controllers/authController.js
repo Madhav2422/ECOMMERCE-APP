@@ -1,7 +1,7 @@
 import userModel from "../models/userModel.js";
-import orderModel from "../models/orderModel.js";
 import { comparePassword, hashPassword } from "../helpers/authHelper.js";
 import JWT from "jsonwebtoken";
+import orderModel from "../models/orderModel.js"
 
 
 export const registerController = async (req, res) => {
@@ -199,18 +199,21 @@ export const updateProfileController =  async(req,res)=>{
     }
 };
 
-// Order Controller
- export const getOrdersController = async (req,res) =>{
-        try{
-            const orders=await orderModel.find({buyer:req.user_id}).populate("products","-photo").populate("buyer","name")
-            res.json(orders);
-        }
-        catch(err){
-            console.error(err);
-            res.status(500).send({
-                success: false,
-                msg: "Internal server error",
-                err
-            });
-        }
- }
+ //orders
+export const getOrdersController = async (req, res) => {
+    try {
+      const orders = await orderModel
+        .find({ buyer: req.user._id })
+        .populate("products", "-photo")
+        .populate("buyer", "name");
+      res.json(orders);
+      
+    } catch (error) {
+      console.log(error);
+      res.status(500).send({
+        success: false,
+        message: "Error WHile Geting Orders",
+        error,
+      });
+    }
+  };
