@@ -1,5 +1,5 @@
 import express from 'express';
-import { forgotpasswordController, getOrdersController, loginController, registerController, testController, updateProfileController } from '../controllers/authController.js';
+import { forgotpasswordController, getAllOrdersController, getOrdersController, loginController, registerController, testController, updateProfileController } from '../controllers/authController.js';
 import { isAdmin, requireSignIn } from "../middlewares/authMiddlewares.js";
 
 
@@ -34,6 +34,9 @@ router.post("/forgotpassword",forgotpasswordController)
 
 // orders
 router.get("/orders", requireSignIn, getOrdersController);
+
+// all orders
+router.get("/all-orders", isAdmin,requireSignIn, getAllOrdersController);
 
 
 export default router;
